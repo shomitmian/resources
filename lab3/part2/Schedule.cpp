@@ -14,7 +14,13 @@ bool Schedule::dropCourse(std::string name)
     // TO DO: if the course was not already in the map, return false
     // otherwise, remove it from the map and return true!
 
-    return false;
+    if (courseMap.find(name) == courseMap.end()) {
+        // Course not found
+        return false;
+    }
+    // Course found
+    courseMap.erase(name);
+    return true;
 }
 
 bool Schedule::addCourse(Course* c)
